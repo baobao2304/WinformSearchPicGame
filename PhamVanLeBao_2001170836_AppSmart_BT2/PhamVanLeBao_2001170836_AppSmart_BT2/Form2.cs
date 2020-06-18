@@ -9,24 +9,26 @@ using System.Windows.Forms;
 
 namespace PhamVanLeBao_2001170836_AppSmart_BT2
 {
-    public partial class Form1 : Form
+    public partial class Form2 : Form
     {
-        public Form1()
+        public Form2()
         {
             InitializeComponent();
             initMyComponent();
         }
         public void initMyComponent()
         {
-            Button btn = new Button();
-            btn.Name = "b";
-            btn.Text = "Click ";
-            btn.Size = new Size(50, 50);
-            btn.Left = 30;
-            btn.Top = 50;
-            btn.Click += new EventHandler(btn_Click);
-            this.Controls.Add(btn);
 
+            for (int i = 0; i < 10; i++)
+            {
+                Button btn = new Button();
+                btn.Name = "button" + i;
+                btn.Text = "Nút " + i;
+                btn.Size = new Size(50, 50);
+                btn.Left = i * (btn.Width + 50);
+                btn.Click += new EventHandler(btn_Click);
+                this.Controls.Add(btn);
+            }
         }
 
         private void btn_Click(object sender, EventArgs e)
